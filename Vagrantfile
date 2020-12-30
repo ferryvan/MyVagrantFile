@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-	n=1
+	n=3
 	(1..n).each do |i|
 		config.vm.define "k3s-#{i}" do |node|
 			# 设置虚拟机的Box
