@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-	n=3
+	n=1
 	(1..n).each do |i|
 		config.vm.define "k3s-#{i}" do |node|
 			# 设置虚拟机的Box
@@ -14,9 +14,9 @@ Vagrant.configure("2") do |config|
 				# 设置虚拟机的名称
 				v.name = "k3s-#{i}"
 				# 设置虚拟机的内存大小
-				v.memory = 8192
+				v.memory = 24576
 				# 设置虚拟机的CPU个数
-				v.cpus = 4
+				v.cpus = 12
 			end
 		
 			# 设置虚拟机的主机名
@@ -24,7 +24,7 @@ Vagrant.configure("2") do |config|
 
 			# 设置虚拟机的IP
 			node.vm.network "private_network", ip: "192.168.56.2#{i}"
-			#node.vm.network "public_network", bridge: "en0: Wi-Fi (Wireless)"
+			# node.vm.network "public_network", bridge: "en0: Wi-Fi (Wireless)"
 			# 将上一步设置的IP追加到每个主机的hosts文件里
 			(1..n).each do |i|
 				node.vm.provision "shell" do |s|
