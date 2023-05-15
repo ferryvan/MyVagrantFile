@@ -9,6 +9,12 @@
 ```bash
 vagrant up
 ```
+
+连接
+```bash
+vagrant ssh
+```
+
 查看状态
 ```bash
 vagrant status
